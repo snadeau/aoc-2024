@@ -1,6 +1,7 @@
 package main
 
 import (
+	"aoc-2024/common/mathutils"
 	"fmt"
 	"log"
 	"os"
@@ -34,19 +35,12 @@ func main() {
 	fmt.Println("Similarity:", solveSimilarity(left, right))
 }
 
-func Abs(value int) int {
-	if value < 0 {
-		return -value
-	}
-	return value
-}
-
 func solveDistance(left []int, right []int) int {
 	sort.Ints(left)
 	sort.Ints(right)
 	distance := 0
 	for i := 0; i < len(left); i++ {
-		distance += Abs(left[i] - right[i])
+		distance += mathutils.Abs(left[i] - right[i])
 	}
 	return distance
 }
